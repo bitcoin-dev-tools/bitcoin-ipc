@@ -4,12 +4,12 @@
 
 @0xc77d03df6a41b505;
 
-using Cxx = import "/capnp/c++.capnp";
-$Cxx.namespace("ipc::capnp::messages");
+# using Cxx = import "/capnp/c++.capnp";
+# $Cxx.namespace("ipc::capnp::messages");
 
-using Proxy = import "/mp/proxy.capnp";
-$Proxy.include("ipc/capnp/mining.h");
-$Proxy.includeTypes("ipc/capnp/mining-types.h");
+using Proxy = import "proxy.capnp";
+# $Proxy.include("ipc/capnp/mining.h");
+# $Proxy.includeTypes("ipc/capnp/mining-types.h");
 
 interface Mining $Proxy.wrap("interfaces::Mining") {
     isTestChain @0 (context :Proxy.Context) -> (result: Bool);

@@ -22,3 +22,10 @@ pub mod proxy_capnp {
 pub mod wallet_capnp {
     include!(concat!(env!("OUT_DIR"), "/wallet_capnp.rs"));
 }
+pub mod mining_capnp {
+    include!(concat!(env!("OUT_DIR"), "/mining_capnp.rs"));
+}
+pub mod spawner;
+pub mod tasks;
+pub mod init;
+pub mod clients;

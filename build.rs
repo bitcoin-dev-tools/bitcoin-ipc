@@ -15,6 +15,7 @@ fn main() {
         .file("schema/node.capnp")
         .file("schema/proxy.capnp")
         .file("schema/wallet.capnp")
+        .file("schema/mining.capnp")
         .output_path(out_path)
         .run()
         .expect("schema compiler command failed to run");
@@ -27,4 +28,5 @@ fn main() {
     println!("cargo:rerun-if-changed=schema/node.capnp");
     println!("cargo:rerun-if-changed=schema/proxy.capnp");
     println!("cargo:rerun-if-changed=schema/wallet.capnp");
+    println!("cargo:rerun-if-changed=schema/mining.capnp");
 }
