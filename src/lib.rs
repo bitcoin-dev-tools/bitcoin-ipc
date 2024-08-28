@@ -22,3 +22,7 @@ pub mod proxy_capnp {
 pub mod wallet_capnp {
     include!(concat!(env!("OUT_DIR"), "/wallet_capnp.rs"));
 }
+pub mod chain;
+pub mod init;
+pub mod node;
+pub mod wallet;
