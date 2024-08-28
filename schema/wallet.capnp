@@ -37,7 +37,7 @@ interface Wallet $Proxy.wrap("interfaces::Wallet") {
     getAddresses @18 (context :Proxy.Context) -> (result :List(WalletAddress));
     getAddressReceiveRequests @19 (context :Proxy.Context) -> (result :List(Data));
     setAddressReceiveRequest @20 (context :Proxy.Context, dest :TxDestination, id :Data, value :Data) -> (result :Bool);
-    displayAddress @21 (context :Proxy.Context, dest :TxDestination) -> (result :Bool);
+    displayAddress @21 (context :Proxy.Context, dest :TxDestination) -> (result :Common.ResultVoid);
     lockCoin @22 (context :Proxy.Context, output :Data, writeToDb :Bool) -> (result :Bool);
     unlockCoin @23 (context :Proxy.Context, output :Data) -> (result :Bool);
     isLockedCoin @24 (context :Proxy.Context, output :Data) -> (result :Bool);
@@ -202,7 +202,9 @@ struct CoinControl {
     lockTime @19 :UInt32;
     hasVersion @20 :UInt32;
     version @21 :UInt32;
-    setSelected @22 :List(Data);
+    hasMaxTxWeight @22 :UInt32;
+    maxTxWeight @23 :UInt32;
+    setSelected @24 :List(Data);
 }
 
 struct WalletTx $Proxy.wrap("interfaces::WalletTx") {

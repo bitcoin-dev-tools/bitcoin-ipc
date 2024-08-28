@@ -46,34 +46,35 @@ interface Node $Proxy.wrap("interfaces::Node") {
     getTotalBytesSent @27 (context :Proxy.Context) -> (result :Int64);
     getMempoolSize @28 (context :Proxy.Context) -> (result :UInt64);
     getMempoolDynamicUsage @29 (context :Proxy.Context) -> (result :UInt64);
-    getHeaderTip @30 (context :Proxy.Context) -> (height :Int32, blockTime :Int64, result :Bool);
-    getNumBlocks @31 (context :Proxy.Context) -> (result :Int32);
-    getBestBlockHash @32 (context :Proxy.Context) -> (result :Data);
-    getLastBlockTime @33 (context :Proxy.Context) -> (result :Int64);
-    getVerificationProgress @34 (context :Proxy.Context) -> (result :Float64);
-    isInitialBlockDownload @35 (context :Proxy.Context) -> (result :Bool);
-    isLoadingBlocks @36 (context :Proxy.Context) -> (result :Bool);
-    setNetworkActive @37 (context :Proxy.Context, active :Bool) -> ();
-    getNetworkActive @38 (context :Proxy.Context) -> (result :Bool);
-    getDustRelayFee @39 (context :Proxy.Context) -> (result :Data);
-    executeRpc @40 (context :Proxy.Context, command :Text, params :Text, uri :Text) -> (error :Text $Proxy.exception("std::exception"), rpcError :Text $Proxy.exception("UniValue"), result :Text);
-    listRpcCommands @41 (context :Proxy.Context) -> (result :List(Text));
-    rpcSetTimerInterfaceIfUnset @42 (context :Proxy.Context, iface :Void) -> ();
-    rpcUnsetTimerInterface @43 (context :Proxy.Context, iface :Void) -> ();
-    getUnspentOutput @44 (context :Proxy.Context, output :Data) -> (result :Data);
-    broadcastTransaction @45 (context :Proxy.Context, tx: Data, maxTxFee :Int64) -> (error: Text, result :Int32);
-    customWalletLoader @46 (context :Proxy.Context) -> (result :Wallet.WalletLoader) $Proxy.name("walletLoader");
-    handleInitMessage @47 (context :Proxy.Context, callback :InitMessageCallback) -> (result :Handler.Handler);
-    handleMessageBox @48 (context :Proxy.Context, callback :MessageBoxCallback) -> (result :Handler.Handler);
-    handleQuestion @49 (context :Proxy.Context, callback :QuestionCallback) -> (result :Handler.Handler);
-    handleShowProgress @50 (context :Proxy.Context, callback :ShowNodeProgressCallback) -> (result :Handler.Handler);
-    handleInitWallet @51 (context :Proxy.Context, callback :InitWalletCallback) -> (result :Handler.Handler);
-    handleNotifyNumConnectionsChanged @52 (context :Proxy.Context, callback :NotifyNumConnectionsChangedCallback) -> (result :Handler.Handler);
-    handleNotifyNetworkActiveChanged @53 (context :Proxy.Context, callback :NotifyNetworkActiveChangedCallback) -> (result :Handler.Handler);
-    handleNotifyAlertChanged @54 (context :Proxy.Context, callback :NotifyAlertChangedCallback) -> (result :Handler.Handler);
-    handleBannedListChanged @55 (context :Proxy.Context, callback :BannedListChangedCallback) -> (result :Handler.Handler);
-    handleNotifyBlockTip @56 (context :Proxy.Context, callback :NotifyBlockTipCallback) -> (result :Handler.Handler);
-    handleNotifyHeaderTip @57 (context :Proxy.Context, callback :NotifyHeaderTipCallback) -> (result :Handler.Handler);
+    getMempoolMaxUsage @30 (context :Proxy.Context) -> (result :UInt64);
+    getHeaderTip @31 (context :Proxy.Context) -> (height :Int32, blockTime :Int64, result :Bool);
+    getNumBlocks @32 (context :Proxy.Context) -> (result :Int32);
+    getBestBlockHash @33 (context :Proxy.Context) -> (result :Data);
+    getLastBlockTime @34 (context :Proxy.Context) -> (result :Int64);
+    getVerificationProgress @35 (context :Proxy.Context) -> (result :Float64);
+    isInitialBlockDownload @36 (context :Proxy.Context) -> (result :Bool);
+    isLoadingBlocks @37 (context :Proxy.Context) -> (result :Bool);
+    setNetworkActive @38 (context :Proxy.Context, active :Bool) -> ();
+    getNetworkActive @39 (context :Proxy.Context) -> (result :Bool);
+    getDustRelayFee @40 (context :Proxy.Context) -> (result :Data);
+    executeRpc @41 (context :Proxy.Context, command :Text, params :Text, uri :Text) -> (error :Text $Proxy.exception("std::exception"), rpcError :Text $Proxy.exception("UniValue"), result :Text);
+    listRpcCommands @42 (context :Proxy.Context) -> (result :List(Text));
+    rpcSetTimerInterfaceIfUnset @43 (context :Proxy.Context, iface :Void) -> ();
+    rpcUnsetTimerInterface @44 (context :Proxy.Context, iface :Void) -> ();
+    getUnspentOutput @45 (context :Proxy.Context, output :Data) -> (result :Data);
+    broadcastTransaction @46 (context :Proxy.Context, tx: Data, maxTxFee :Int64) -> (error: Text, result :Int32);
+    customWalletLoader @47 (context :Proxy.Context) -> (result :Wallet.WalletLoader) $Proxy.name("walletLoader");
+    handleInitMessage @48 (context :Proxy.Context, callback :InitMessageCallback) -> (result :Handler.Handler);
+    handleMessageBox @49 (context :Proxy.Context, callback :MessageBoxCallback) -> (result :Handler.Handler);
+    handleQuestion @50 (context :Proxy.Context, callback :QuestionCallback) -> (result :Handler.Handler);
+    handleShowProgress @51 (context :Proxy.Context, callback :ShowNodeProgressCallback) -> (result :Handler.Handler);
+    handleInitWallet @52 (context :Proxy.Context, callback :InitWalletCallback) -> (result :Handler.Handler);
+    handleNotifyNumConnectionsChanged @53 (context :Proxy.Context, callback :NotifyNumConnectionsChangedCallback) -> (result :Handler.Handler);
+    handleNotifyNetworkActiveChanged @54 (context :Proxy.Context, callback :NotifyNetworkActiveChangedCallback) -> (result :Handler.Handler);
+    handleNotifyAlertChanged @55 (context :Proxy.Context, callback :NotifyAlertChangedCallback) -> (result :Handler.Handler);
+    handleBannedListChanged @56 (context :Proxy.Context, callback :BannedListChangedCallback) -> (result :Handler.Handler);
+    handleNotifyBlockTip @57 (context :Proxy.Context, callback :NotifyBlockTipCallback) -> (result :Handler.Handler);
+    handleNotifyHeaderTip @58 (context :Proxy.Context, callback :NotifyHeaderTipCallback) -> (result :Handler.Handler);
 }
 
 interface ExternalSigner $Proxy.wrap("interfaces::ExternalSigner") {
@@ -138,7 +139,7 @@ interface NotifyHeaderTipCallback $Proxy.wrap("ProxyCallback<interfaces::Node::N
 
 struct ProxyInfo $Proxy.wrap("::Proxy") {
     proxy @0 :Data;
-    randomizeCredentials @1 :Bool $Proxy.name("randomize_credentials");
+    randomizeCredentials @1 :Bool $Proxy.name("m_randomize_credentials");
 }
 
 struct NodeStats $Proxy.wrap("CNodeStats") {
@@ -148,30 +149,29 @@ struct NodeStats $Proxy.wrap("CNodeStats") {
     lastTXTime @3 :Int64 $Proxy.name("m_last_tx_time");
     lastBlockTime @4 :Int64 $Proxy.name("m_last_block_time");
     timeConnected @5 :Int64 $Proxy.name("m_connected");
-    timeOffset @6 :Int64 $Proxy.name("nTimeOffset");
-    addrName @7 :Text $Proxy.name("m_addr_name");
-    version @8 :Int32 $Proxy.name("nVersion");
-    cleanSubVer @9 :Text $Proxy.name("cleanSubVer");
-    inbound @10 :Bool $Proxy.name("fInbound");
-    bip152HighbandwidthTo @11 :Bool $Proxy.name("m_bip152_highbandwidth_to");
-    bip152HighbandwidthFrom @12 :Bool $Proxy.name("m_bip152_highbandwidth_from");
-    startingHeight @13 :Int32 $Proxy.name("m_starting_height");
-    sendBytes @14 :UInt64 $Proxy.name("nSendBytes");
-    sendBytesPerMsgType @15 :List(Common.PairUInt64(Text)) $Proxy.name("mapSendBytesPerMsgType");
-    recvBytes @16 :UInt64 $Proxy.name("nRecvBytes");
-    recvBytesPerMsgType @17 :List(Common.PairUInt64(Text)) $Proxy.name("mapRecvBytesPerMsgType");
-    permissionFlags @18 :Int32 $Proxy.name("m_permission_flags");
-    pingTime @19 :Int64 $Proxy.name("m_last_ping_time");
-    minPingTime @20 :Int64 $Proxy.name("m_min_ping_time");
-    addrLocal @21 :Text $Proxy.name("addrLocal");
-    addr @22 :Data $Proxy.name("addr");
-    addrBind @23 :Data $Proxy.name("addrBind");
-    network @24 :Int32 $Proxy.name("m_network");
-    mappedAs @25 :UInt32 $Proxy.name("m_mapped_as");
-    connType @26 :Int32 $Proxy.name("m_conn_type");
-    transportType @27 :UInt8 $Proxy.name("m_transport_type;");
-    sessionId @28 :Text $Proxy.name("m_session_id");
-    stateStats @29 :NodeStateStats $Proxy.skip;
+    addrName @6 :Text $Proxy.name("m_addr_name");
+    version @7 :Int32 $Proxy.name("nVersion");
+    cleanSubVer @8 :Text $Proxy.name("cleanSubVer");
+    inbound @9 :Bool $Proxy.name("fInbound");
+    bip152HighbandwidthTo @10 :Bool $Proxy.name("m_bip152_highbandwidth_to");
+    bip152HighbandwidthFrom @11 :Bool $Proxy.name("m_bip152_highbandwidth_from");
+    startingHeight @12 :Int32 $Proxy.name("m_starting_height");
+    sendBytes @13 :UInt64 $Proxy.name("nSendBytes");
+    sendBytesPerMsgType @14 :List(Common.PairUInt64(Text)) $Proxy.name("mapSendBytesPerMsgType");
+    recvBytes @15 :UInt64 $Proxy.name("nRecvBytes");
+    recvBytesPerMsgType @16 :List(Common.PairUInt64(Text)) $Proxy.name("mapRecvBytesPerMsgType");
+    permissionFlags @17 :Int32 $Proxy.name("m_permission_flags");
+    pingTime @18 :Int64 $Proxy.name("m_last_ping_time");
+    minPingTime @19 :Int64 $Proxy.name("m_min_ping_time");
+    addrLocal @20 :Text $Proxy.name("addrLocal");
+    addr @21 :Data $Proxy.name("addr");
+    addrBind @22 :Data $Proxy.name("addrBind");
+    network @23 :Int32 $Proxy.name("m_network");
+    mappedAs @24 :UInt32 $Proxy.name("m_mapped_as");
+    connType @25 :Int32 $Proxy.name("m_conn_type");
+    transportType @26 :UInt8 $Proxy.name("m_transport_type;");
+    sessionId @27 :Text $Proxy.name("m_session_id");
+    stateStats @28 :NodeStateStats $Proxy.skip;
 }
 
 struct NodeStateStats $Proxy.wrap("CNodeStateStats") {
@@ -185,6 +185,7 @@ struct NodeStateStats $Proxy.wrap("CNodeStateStats") {
     addressRelayEnabled @7 :Bool $Proxy.name("m_addr_relay_enabled");
     theirServices @8 :UInt64 $Proxy.name("their_services");
     presyncHeight @9 :Int64 $Proxy.name("presync_height");
+    timeOffset @10 :Int64 $Proxy.name("time_offset");
 }
 
 struct Banmap {
