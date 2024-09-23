@@ -4,8 +4,8 @@
 
 @0xcc316e3f71a040fb;
 
-# using Cxx = import "/capnp/c++.capnp";
-# $Cxx.namespace("mp");
+using Cxx = import "/capnp/c++.capnp";
+$Cxx.namespace("mp");
 
 annotation include(file): Text;
 annotation includeTypes(file): Text;
